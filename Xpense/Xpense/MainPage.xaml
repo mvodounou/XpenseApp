@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xpense.MainPage" NavigationPage.HasNavigationBar="True"  BackgroundColor="{StaticResource MainColor}" xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:effects="clr-namespace:Xpense.Effects"
+              ios:Page.UseSafeArea="False" >
+    <ContentView ControlTemplate="{StaticResource MainTemplate}">
+        <Grid VerticalOptions="CenterAndExpand" RowSpacing="30" RowDefinitions="Auto,Auto" Padding="50,0">
+        
+        <Image HeightRequest="100" HorizontalOptions="Center" Aspect="AspectFit" Source="Xpenselogo.jpeg"/>
+        <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="5">
+            <Label Text="Log-in to Report Writer 2" HorizontalOptions="Center"/>
+            <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto">
+                <Entry Grid.Row="0" x:Name="uName" Text="{Binding Username}" Placeholder="Username">
+                    <Entry.Effects>
+                      <effects:BorderEffect/>
+                    </Entry.Effects>
+                </Entry>
+                <Entry Grid.Row="1" x:Name="passWord" IsPassword="True" Text="{Binding Password}" Placeholder="Password">
+                    <Entry.Effects>
+                      <effects:BorderEffect/>
+                    </Entry.Effects>
+                </Entry>
+                <Grid RowDefinitions="Auto,Auto" Grid.Row="2">
+                    <Label IsVisible="{Binding IsLogInAttemptSuccessfull}" Text="log in attempt failed" TextColor="{StaticResource Red}" FontSize="Small" HorizontalOptions="Start"/>
+                    <Button Command="{Binding LogInCommand}" Text="Login" IsEnabled="{Binding IsBtnEnabled}" Grid.Row="1" TextColor="{StaticResource White}" BackgroundColor="{StaticResource Key=MainColor}" HorizontalOptions="Center" Padding="8,0">
+                    <Button.Triggers>
+                        <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.3"/>
+                        </Trigger>
+                    </Button.Triggers>
+                </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    </ContentView>
+</ContentPage>
+

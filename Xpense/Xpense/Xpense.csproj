@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.4" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.6.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ControlTemplates\" />
+    <None Remove="ViewModel\" />
+    <None Remove="Refractored.MvvmHelpers" />
+    <None Remove="Prism.Unity.Forms" />
+    <None Remove="Views\" />
+    <None Remove="MonkeyCache.FileStore" />
+    <None Remove="Effects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Templates\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="Views\" />
+    <Folder Include="Effects\" />
+  </ItemGroup>
+</Project>

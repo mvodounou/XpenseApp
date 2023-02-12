@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ControlTemplate x:Key="MainTemplate">
+    <Grid VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" Padding="{OnPlatform Android='15', iOS='15,60,15,5', macOS='15,10'}" ColumnSpacing="0" BackgroundColor="{StaticResource MainColor}">
+             <Label Text="{TemplateBinding Parent.BindingContext.MainTemplateTitle}" TextColor="{StaticResource White}" Grid.ColumnSpan="2" VerticalOptions="{OnPlatform iOS='End',macOS='Center'}" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+             <Button Text="{TemplateBinding Parent.BindingContext.MainTemplateMenuText}" Command="{TemplateBinding Parent.BindingContext.MainTemplateMenuCommand}" Padding="0" TextColor="{StaticResource White}" Grid.Column="1" VerticalOptions="End" HorizontalOptions="End" FontSize="Small"/>
+        </Grid>
+        <ContentPresenter VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource White}"
+                        Grid.Column="0"
+                        Grid.Row="1"/>
+    </Grid>
+</ControlTemplate>
+</ResourceDictionary>
+
